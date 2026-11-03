@@ -4,7 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 const run=(cmd,args,options={})=>execFileSync(cmd,args,{stdio:'inherit',...options});
 const version=JSON.parse(await fs.readFile('package.json','utf8')).version;
-if(process.env.GITHUB_REF_NAME && process.env.GITHUB_REF_NAME!==`v${version}`)throw Error('Release tag does not match package version.');
+if(process.env.GITHUB_REF?.startsWith('refs/tags/') && process.env.GITHUB_REF_NAME!==`v${version}`)throw Error('Release tag does not match package version.');
 for(const name of ['extension-sdk','extension-tools','extension-sandbox'])if(JSON.parse(await fs.readFile(`packages/${name}/package.json`,'utf8')).version!==version)throw Error('Package version mismatch.');
 run('npm',['run','build:sandbox']);run('npm',['run','build']);
 await fs.rm('release',{recursive:true,force:true});await fs.mkdir('release/packages',{recursive:true});
