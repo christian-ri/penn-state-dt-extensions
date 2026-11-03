@@ -1,6 +1,6 @@
 import type * as Cesium from "cesium";
 
-/** Stable API contract, version 1. This package contains types only. */
+/** Stable API contract, version 1. The package also implements EXTENSION_API_VERSION as a runtime constant. */
 export declare const EXTENSION_API_VERSION: "1";
 export type ExtensionApiVersion = typeof EXTENSION_API_VERSION;
 export type ExtensionBuilding = { id: string; osmId: string; name: string; longitude: number; latitude: number };

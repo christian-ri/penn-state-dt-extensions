@@ -8,4 +8,4 @@ Public workflows use GitHub-hosted runners and least permissions. They have no P
 
 Before every publication inspect publication/review.md, the explicit source inventory, npm pack output, release archive entries, checksums and generated documentation. Secret scanning is an additional check, not a substitute for data-owner and source review. Archive extraction must reject path traversal, symlinks and special files before running the installer.
 
-Report vulnerabilities privately using the repository Security Advisories private reporting facility if enabled. If unavailable, request a private reporting channel from the repository owner without posting exploit details, credentials or restricted data in an issue. A dedicated contact must be configured before inviting external security reports.
+Report vulnerabilities privately through [GitHub private vulnerability reporting](https://github.com/christian-ri/penn-state-dt-extensions/security/advisories/new), which is enabled for this repository. Do not post exploit details, credentials or restricted data in public issues.

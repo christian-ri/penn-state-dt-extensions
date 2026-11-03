@@ -8,6 +8,6 @@ Reviewed sample: Palmer readings are fabricated strings; chart histories are fab
 
 The publication allowlist enumerates every source file. Changing a file inventory requires review. Checks additionally reject private-path markers, credentials and unsafe public workflows. Before any release inspect npm pack --dry-run output, archive listings and generated portal output. Checksums prove identity only.
 
-MIT was explicitly approved by the owner. Dedicated security contact and optional staging remain owner configuration tasks. The public CI does not publish to npm or deploy any platform.
+MIT was explicitly approved by the owner. GitHub private vulnerability reporting is enabled. Optional staging remains an owner configuration task. The public CI does not publish to npm or deploy any platform.
 
 Initial Core integration must be recorded separately; local sandbox tests are not a Core integration report.
