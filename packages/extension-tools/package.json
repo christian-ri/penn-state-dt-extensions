@@ -1,0 +1,28 @@
+{
+  "name": "@penn-state-dt/extension-tools",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "dt-extension": "cli.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.mjs"
+    },
+    "./manifest": {
+      "types": "./manifest.d.ts",
+      "default": "./manifest.mjs"
+    }
+  },
+  "files": [
+    "*.mjs",
+    "*.d.ts",
+    "LICENSE",
+    "*.d.mts"
+  ],
+  "dependencies": {
+    "@penn-state-dt/extension-sdk": "1.0.0"
+  }
+}

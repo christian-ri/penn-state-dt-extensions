@@ -1,0 +1,14 @@
+# Penn State Digital Twin Extensions
+
+Stable API v1. Public source and toolkit; no private Core access required.
+
+- [ getting-started ](docs/getting-started.md)
+- [ architecture ](docs/architecture.md)
+- [ manifest-reference ](docs/manifest-reference.md)
+- [ sdk-reference ](docs/sdk-reference.md)
+- [ testing ](docs/testing.md)
+- [ deployment ](docs/deployment.md)
+- [ troubleshooting ](docs/troubleshooting.md)
+- [ security ](docs/security.md)
+- [ examples ](docs/examples.md)
+- [ compatibility ](docs/compatibility.md)

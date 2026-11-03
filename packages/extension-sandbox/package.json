@@ -1,0 +1,22 @@
+{
+  "name": "@penn-state-dt/extension-sandbox",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@penn-state-dt/extension-sdk": "1.0.0"
+  },
+  "peerDependencies": {
+    "cesium": "^1.138.0"
+  }
+}

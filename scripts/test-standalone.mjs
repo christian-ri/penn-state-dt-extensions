@@ -1,0 +1,22 @@
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+const temporary=await fs.mkdtemp(path.join(os.tmpdir(),'dt-external-'));
+const run=(cmd,args,options={})=>execFileSync(cmd,args,{stdio:'inherit',...options});
+try{
+  const project=path.join(temporary,'research');
+  run('node',['scripts/create-extension.mjs',project,'external-research']);
+  run('npm',['ci','--ignore-scripts'],{cwd:project});
+  for(const task of ['build','test','validate'])run('npm',['run',task],{cwd:project});
+  const pkg=JSON.parse(await fs.readFile(path.join(project,'package.json'),'utf8'));
+  for(const dependency of Object.values(pkg.devDependencies))if(dependency.startsWith('file:')&&!dependency.startsWith('file:./vendor/'))throw Error('Nonportable dependency.');
+  // Exercise the default export in a host outside the toolkit checkout.
+  const smoke=`import {JSDOM} from 'jsdom';import {createSandbox} from '@penn-state-dt/extension-sandbox';import extension from './dist/index.js';import fs from 'node:fs';const dom=new JSDOM('<main></main>');globalThis.document=dom.window.document;const sandbox=createSandbox(JSON.parse(fs.readFileSync('extension.manifest.json','utf8')),document.querySelector('main'));await sandbox.activate(extension);document.querySelector('button').click();await new Promise(r=>setTimeout(r,0));await sandbox.deactivate();if(sandbox.entities.values.length)throw Error('Leaked entities');console.log('Standalone lifecycle passed');`;
+  await fs.writeFile(path.join(project,'smoke.mjs'),smoke);run('node',['smoke.mjs'],{cwd:project});
+  const palmer=path.join(temporary,'palmer');
+  await fs.cp('release/palmer-museum-extension',palmer,{recursive:true});
+  run('npm',['ci','--ignore-scripts'],{cwd:palmer});
+  for(const task of ['build','test','validate'])run('npm',['run',task],{cwd:palmer});
+  await fs.writeFile(path.join(palmer,'smoke.mjs'),smoke);run('node',['smoke.mjs'],{cwd:palmer});
+}finally{await fs.rm(temporary,{recursive:true,force:true});}

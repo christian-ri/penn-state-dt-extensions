@@ -1,0 +1,11 @@
+{
+  "id": "my-extension",
+  "name": "My Digital Twin Extension",
+  "version": "0.1.0",
+  "description": "Describe the research experience this extension adds.",
+  "author": "Research group or author",
+  "apiVersion": "1",
+  "entry": "index.js",
+  "stylesheet": "style.css",
+  "capabilities": ["entities", "ui", "events"]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@penn-state-dt/extension-sdk",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "cesium": "^1.138.0"
+  }
+}

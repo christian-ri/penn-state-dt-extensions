@@ -1,0 +1,11 @@
+{
+  "id": "palmer-museum",
+  "name": "Palmer Example Extension 01",
+  "version": "1.0.1",
+  "description": "Sample museum-specific research extension with sample sensor data.",
+  "author": "Penn State Digital Twin example",
+  "apiVersion": "1",
+  "entry": "index.js",
+  "stylesheet": "style.css",
+  "capabilities": ["entities", "buildings", "spaces", "ui", "events"]
+}
