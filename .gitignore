@@ -1,6 +1,9 @@
 node_modules/
 dist/
 release/
-*.tgz
 .env*
 .DS_Store
+
+# Standalone starters must commit their released SDK dependencies.
+!vendor/
+!vendor/*.tgz

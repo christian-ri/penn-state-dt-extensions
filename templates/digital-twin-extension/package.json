@@ -13,9 +13,9 @@
     "validate": "dt-extension validate dist"
   },
   "devDependencies": {
-    "@penn-state-dt/extension-sdk": "file:./vendor/penn-state-dt-extension-sdk-1.0.0.tgz",
-    "@penn-state-dt/extension-tools": "file:./vendor/penn-state-dt-extension-tools-1.0.0.tgz",
-    "@penn-state-dt/extension-sandbox": "file:./vendor/penn-state-dt-extension-sandbox-1.0.0.tgz",
+    "@penn-state-dt/extension-sdk": "file:./vendor/penn-state-dt-extension-sdk-1.0.1.tgz",
+    "@penn-state-dt/extension-tools": "file:./vendor/penn-state-dt-extension-tools-1.0.1.tgz",
+    "@penn-state-dt/extension-sandbox": "file:./vendor/penn-state-dt-extension-sandbox-1.0.1.tgz",
     "cesium": "1.138.0",
     "typescript": "5.9.3",
     "vite": "7.3.7",

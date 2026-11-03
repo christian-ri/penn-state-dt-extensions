@@ -2,6 +2,7 @@
 
 | Toolkit / SDK | Manifest API | Core requirement | Distribution |
 | --- | --- | --- | --- |
+| 1.0.1 | "1" | Same stable v1 contract; fixes starter vendor tracking | GitHub release npm tarballs |
 | 1.0.0 | "1" | Runtime implementing documented stable v1 contract | GitHub release npm tarballs |
 
 The initial public release preserves the existing v1 SDK signatures and actual browser behavior. Core version numbers are not invented; a maintainer must record the tested Core commit in each integration report. Existing compiled v1 extensions do not need rebuilding solely because the SDK is distributed publicly.

@@ -1,12 +1,17 @@
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import {execFileSync} from 'node:child_process';
+import {execFileSync,spawnSync} from 'node:child_process';
 const temporary=await fs.mkdtemp(path.join(os.tmpdir(),'dt-external-'));
 const run=(cmd,args,options={})=>execFileSync(cmd,args,{stdio:'inherit',...options});
 try{
   const project=path.join(temporary,'research');
   run('node',['scripts/create-extension.mjs',project,'external-research']);
+  run('git',['init','--quiet',project]);
+  for(const file of await fs.readdir(path.join(project,'vendor'))){
+    const result=spawnSync('git',['check-ignore','--quiet','vendor/'+file],{cwd:project});
+    if(result.status!==1)throw Error(`Vendored SDK is ignored by Git: ${file}`);
+  }
   run('npm',['ci','--ignore-scripts'],{cwd:project});
   for(const task of ['build','test','validate'])run('npm',['run',task],{cwd:project});
   const pkg=JSON.parse(await fs.readFile(path.join(project,'package.json'),'utf8'));

@@ -1,6 +1,6 @@
 {
   "name": "@penn-state-dt/extension-sandbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "license": "MIT",
   "exports": {
@@ -14,7 +14,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@penn-state-dt/extension-sdk": "1.0.0"
+    "@penn-state-dt/extension-sdk": "1.0.1"
   },
   "peerDependencies": {
     "cesium": "^1.138.0"
