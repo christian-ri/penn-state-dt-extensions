@@ -28,7 +28,7 @@ try{
   run('node',['scripts/release.mjs'],{cwd:project});
   const archive=`release/external-research-${pkg.version}.tar.gz`;
   const listing=execFileSync('tar',['-tzf',archive],{cwd:project,encoding:'utf8'});
-  if(!listing.includes('extension.manifest.json')||/\.psu-extension|\.github|\.DS_Store|sandbox|node_modules|vendor\//.test(listing))throw Error('Distributable contains source-only or missing extension files.');
+  if(!listing.includes('extension.manifest.json')||/\.psu-extension|\.github|\.DS_Store|\/\._|sandbox|node_modules|vendor\//.test(listing))throw Error('Distributable contains source-only or missing extension files.');
 
   const palmer=path.join(temporary,'palmer');
   await fs.cp('release/palmer-museum-extension',palmer,{recursive:true});
