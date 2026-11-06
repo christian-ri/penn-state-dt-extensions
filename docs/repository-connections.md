@@ -49,7 +49,7 @@ existing v1.0.1 release archives need the retrofit below.
    request through the platform's separate protected GitHub workflow. If the source
    changes before approval, create a fresh connection request. Authors get no platform
    SSH, production runner or installation credentials.
-7. After connection approval, stable GitHub Releases are checked every six hours
+7. After connection approval, stable GitHub Releases are checked every twelve hours
    (schedules can be delayed) or when the maintainer starts discovery. This imports
    candidates for review, not automatic production installation.
 
