@@ -1,6 +1,6 @@
 # Agent instructions
 
-Read docs/getting-started.md, docs/security.md, docs/sdk-reference.md and docs/testing.md before implementing. The SDK declarations are authoritative. Never import private Core modules, copy restricted datasets, add credentials, use PSU runners or deploy to production.
+Read docs/getting-started.md, docs/security.md, docs/sdk-reference.md, docs/testing.md, docs/deployment.md and docs/repository-connections.md before implementing. The SDK declarations are authoritative. Never import private Core modules, copy restricted datasets, add credentials, use PSU runners or deploy to production.
 
 Use npm ci, npm run check, npm run release:prepare and npm run test:standalone. Generated projects must work outside this checkout. Keep one manifest source; Vite emits the build copy. Preserve API v1 compatibility and update meaningful tests when changing lifecycle, validation or contracts.
 
@@ -9,3 +9,5 @@ Workflow: read docs → generate starter → inspect installed SDK → implement
 Example Codex request: "Create a v1 extension with a toggle, side panel and synthetic markers using the released starter. Run build, tests and validation. Explain remaining Core integration checks. Do not publish beyond the authorization given."
 
 Before publishing any repository, npm package, draft release or portal artifact, run check:publication and review publication/review.md plus actual packed contents. Human authorization for a repository or release does not authorize publishing private Core data. This project has no production credentials.
+
+Repository onboarding: use exactly .psu-extension.json (singular) in the source root. Its extensionId and archive prefix must match the single source manifest; workflow/securityWorkflow must reference real committed hosted workflows. Source-generated projects include marker/workflows/packaging; update marker ID/prefix when generating or renaming. Never include marker, workflows or sandbox in dist archives. A valid marker proves compatibility, not trust. Connection approval, per-release review and installation are separate. After manual submission tell the author to email cvr5739@psu.edu with submission ID/version/checksum; do not claim the mailto sends automatically. See the agent checklist in docs/repository-connections.md. Do not bump SDK versions, publish a new toolkit release or rewrite old release archives merely to update onboarding docs.

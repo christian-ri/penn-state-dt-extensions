@@ -37,3 +37,8 @@ Edit src/index.ts using only the installed SDK types. Import runtime Cesium obje
 Use one source manifest. The Vite plugin emits dist/extension.manifest.json automatically. Do not create a public/ manifest copy. Build output contains index.js, style.css and the generated manifest.
 
 Next read [testing](testing.md), [deployment](deployment.md), [security](security.md) and [compatibility](compatibility.md). A successful sandbox run does not prove Core integration.
+
+
+## Extension Portal and automatic release discovery
+
+Read [Repository connections](repository-connections.md) for the source marker, read-only GitHub App selection, administrator connection approval, signed release requirements and manual-upload fallback. New source-generated starters include onboarding files; old v1.0.1 archives need the documented retrofit. After manual upload contact cvr5739@psu.edu with submission ID/version/checksum. Connection or release publication does not install an extension.

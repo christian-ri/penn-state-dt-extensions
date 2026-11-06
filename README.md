@@ -16,3 +16,8 @@ The sandbox uses synthetic data. Actual Core integration and production installa
 Documentation is maintained once in docs/. npm run build generates HTML and raw Markdown for the public platform's /developers/extensions/ portal. No production deployment is performed by this repository.
 
 MIT licensed. See [LICENSE](LICENSE) and [CONTRIBUTING](CONTRIBUTING.md).
+
+
+## Extension Portal and automatic release discovery
+
+Read [Repository connections](docs/repository-connections.md) for the source marker, read-only GitHub App selection, administrator connection approval, signed release requirements and manual-upload fallback. New source-generated starters include onboarding files; old v1.0.1 archives need the documented retrofit. After manual upload contact cvr5739@psu.edu with submission ID/version/checksum. Connection or release publication does not install an extension.

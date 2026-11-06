@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 const allowlist=JSON.parse(await fs.readFile('publication/allowlist.json','utf8'));
-const skip=new Set(['node_modules','dist','release','.git']);
+const skip=new Set(['node_modules','dist','release','.git','.DS_Store']);
 async function walk(dir='.'){
   const files=[];for(const entry of await fs.readdir(dir,{withFileTypes:true})){
     if(skip.has(entry.name))continue;

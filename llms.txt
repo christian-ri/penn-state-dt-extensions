@@ -12,3 +12,4 @@ Stable API v1. Public source and toolkit; no private Core access required.
 - [ security ](docs/security.md)
 - [ examples ](docs/examples.md)
 - [ compatibility ](docs/compatibility.md)
+- [ repository-connections ](docs/repository-connections.md)

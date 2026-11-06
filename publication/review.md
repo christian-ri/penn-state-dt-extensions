@@ -11,3 +11,10 @@ The publication allowlist enumerates every source file. Changing a file inventor
 MIT was explicitly approved by the owner. GitHub private vulnerability reporting is enabled. Optional staging remains an owner configuration task. The public CI does not publish to npm or deploy any platform.
 
 Initial Core integration must be recorded separately; local sandbox tests are not a Core integration report.
+
+
+## Repository onboarding documentation update
+
+Reviewed additions are author-facing source markers, hosted author build/security workflows, a dist-only packaging helper, connection/deployment/agent documentation and generator synchronization. They are newly authored against the public API 1 contract and portal protocol. No Core server source, credentials, App private keys, SSH commands, internal filesystem paths, private project datasets or production workflow inputs are copied. Only the public portal URL and requested support email are documented. Generated packages remain API/version 1.0.1; no existing release archive is overwritten and no new toolkit release is authorized by this documentation update alone.
+
+Finder .DS_Store metadata is ignored by the source inventory and explicitly excluded during starter copying and TAR creation. The standalone regression injects synthetic Finder metadata and checks it is absent from the distributable. Credential, private-path, source-inventory and workflow checks are unchanged.

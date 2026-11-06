@@ -12,15 +12,15 @@ for(const name of ['extension-sdk','extension-tools','extension-sandbox']){
   run('npm',['pack',`./packages/${name}`,'--pack-destination','release/packages']);
 }
 for(const [source,target] of [['templates/digital-twin-extension','digital-twin-extension'],['examples/palmer-museum-extension','palmer-museum-extension']]){
-  const dest=path.resolve('release',target);await fs.cp(source,dest,{recursive:true});
+  const dest=path.resolve('release',target);await fs.cp(source,dest,{recursive:true,filter:sourcePath=>path.basename(sourcePath)!=='.DS_Store'});
   await fs.copyFile('LICENSE',path.join(dest,'LICENSE'));
   await fs.copyFile('.node-version',path.join(dest,'.node-version'));
   await fs.copyFile('.gitignore',path.join(dest,'.gitignore'));
   await fs.cp('release/packages',path.join(dest,'vendor'),{recursive:true});
   run('npm',['install','--package-lock-only','--ignore-scripts','--cache',process.env.npm_config_cache??path.resolve('node_modules/.cache/npm')],{cwd:dest});
-  run('tar',['-czf',`release/${target==='digital-twin-extension'?'digital-twin-extension-starter':target}.tar.gz`,'-C','release',target]);
+  run('tar',['--exclude=.DS_Store','-czf',`release/${target==='digital-twin-extension'?'digital-twin-extension-starter':target}.tar.gz`,'-C','release',target]);
 }
-run('tar',['-czf','release/developer-portal.tar.gz','-C','dist/developers/extensions','.']);
+run('tar',['--exclude=.DS_Store','-czf','release/developer-portal.tar.gz','-C','dist/developers/extensions','.']);
 const artifacts=[...(await fs.readdir('release')).filter(f=>f.endsWith('.tar.gz')).map(f=>'release/'+f),...(await fs.readdir('release/packages')).filter(f=>f.endsWith('.tgz')).map(f=>'release/packages/'+f)];
 const lines=[];
 for(const file of artifacts)lines.push(`${createHash('sha256').update(await fs.readFile(file)).digest('hex')}  ${path.basename(file)}`);
