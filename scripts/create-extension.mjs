@@ -12,6 +12,9 @@ await fs.access(path.join(source,'package-lock.json'));
 await fs.cp(source,destination,{recursive:true,errorOnExist:true,force:false});
 const manifest=JSON.parse(await fs.readFile(path.join(destination,'extension.manifest.json'),'utf8'));
 manifest.id=id;manifest.name=id;await fs.writeFile(path.join(destination,'extension.manifest.json'),JSON.stringify(manifest,null,2)+'\n');
+const connection=JSON.parse(await fs.readFile(path.join(destination,'.psu-extension.json'),'utf8'));
+connection.extensionId=id;connection.artifact=id+'-{version}.tar.gz';
+await fs.writeFile(path.join(destination,'.psu-extension.json'),JSON.stringify(connection,null,2)+'\n');
 for(const name of ['package.json','package-lock.json']){
   const file=path.join(destination,name),data=JSON.parse(await fs.readFile(file,'utf8'));data.name=id+'-extension';
   if(data.packages?.[''])data.packages[''].name=data.name;

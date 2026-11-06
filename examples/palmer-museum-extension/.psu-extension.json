@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "platform": "penn-state-dt",
+  "extensionId": "palmer-museum",
+  "workflow": ".github/workflows/ci.yml",
+  "securityWorkflow": ".github/workflows/security.yml",
+  "artifact": "palmer-museum-{version}.tar.gz"
+}

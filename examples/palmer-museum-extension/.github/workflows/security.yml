@@ -1,0 +1,27 @@
+name: Extension source security
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm audit --package-lock-only --ignore-scripts --audit-level=high
+  source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install semgrep
+      - run: semgrep scan --config p/javascript --config p/typescript --config p/secrets --error --metrics=off .

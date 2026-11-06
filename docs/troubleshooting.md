@@ -12,3 +12,7 @@
 - Markers remain after toggle Off: set show=false in onChange(false). Toggle Off is different from deactivation.
 - Timers or fetches continue after deactivate: clear timers and abort extension-owned requests yourself.
 - Artifact passes validation but fails in Core: structural validation does not prove default export correctness, security, rendering or API behavior; follow the integration checklist.
+
+- Repository missing from portal: check GitHub account/admin/maintain rights, App selected-repository access and installation ID, default-branch root extension.manifest.json API 1, exact singular .psu-extension.json, matching extensionId and existing workflow files. Push local changes; the portal cannot read uncommitted files.
+- Repository selected but releases missing: connection approval is separate; publish a stable matching tag/archive after reviewing the draft, and check build/security push runs plus exact artifact attestation. Private-repo plan limitations must not be bypassed. See [repository connections](repository-connections.md).
+- Manual upload pending: follow the portal reminder and email cvr5739@psu.edu with submission ID/version/checksum; scans and administrator/GitHub approval remain required.

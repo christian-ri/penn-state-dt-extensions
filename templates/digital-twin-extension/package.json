@@ -10,7 +10,8 @@
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
     "test": "node --test tests/*.test.mjs",
-    "validate": "dt-extension validate dist"
+    "validate": "dt-extension validate dist",
+    "release:prepare": "npm run build && npm test && npm run validate && node scripts/release.mjs"
   },
   "devDependencies": {
     "@penn-state-dt/extension-sdk": "file:./vendor/penn-state-dt-extension-sdk-1.0.1.tgz",

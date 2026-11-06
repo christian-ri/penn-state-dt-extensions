@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "platform": "penn-state-dt",
+  "extensionId": "my-extension",
+  "workflow": ".github/workflows/ci.yml",
+  "securityWorkflow": ".github/workflows/security.yml",
+  "artifact": "my-extension-{version}.tar.gz"
+}
